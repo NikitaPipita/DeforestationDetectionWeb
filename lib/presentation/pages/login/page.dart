@@ -1,5 +1,5 @@
 import 'package:deforestation_detection/presentation/blocs/login/login_bloc.dart';
-import 'package:deforestation_detection/presentation/pages/navigation/page.dart';
+import 'package:deforestation_detection/presentation/pages/iots/page.dart';
 import 'package:deforestation_detection/utils/validators.dart';
 import 'package:deforestation_detection/dependency_injection.dart' as di;
 import 'package:easy_localization/easy_localization.dart';
@@ -100,8 +100,8 @@ class _LoginPageState extends State<LoginPage> {
                       snapshot.user!.role == 'admin') {
                     Navigator.push(
                       context,
-                      MaterialPageRoute<NavigationPage>(
-                        builder: (_) => NavigationPage(),
+                      MaterialPageRoute<IotsPage>(
+                        builder: (_) => IotsPage(),
                       ),
                     );
                   }

@@ -45,5 +45,5 @@ class ApiIotRepository implements IotRepository {
 
   @override
   Future<void> changeIotState(Iot iot) =>
-      _apiIotGateWay.createIot(_iotToDtoFactory.create(iot));
+      _apiIotGateWay.changeIotState(_iotToDtoFactory.create(iot));
 }

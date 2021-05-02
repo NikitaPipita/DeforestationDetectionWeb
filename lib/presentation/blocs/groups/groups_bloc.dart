@@ -18,7 +18,7 @@ class GroupsBloc extends Bloc<GroupsBlocEvent, GroupsBlocState> {
     this._getGroupsUseCase,
     this._createGroupUseCase,
   ) : super(const GroupsBlocState(GroupsBlocStatus.Loading)) {
-    add(const GetGroupsEvent());
+    add(const GroupsBlocEvent.getGroups());
   }
 
   @override

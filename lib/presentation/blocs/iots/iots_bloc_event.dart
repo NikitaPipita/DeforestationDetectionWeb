@@ -9,6 +9,11 @@ abstract class IotsBlocEvent with _$IotsBlocEvent {
 
   const factory IotsBlocEvent.getSignalingIots() = GetSignalingIotsEvent;
 
+  const factory IotsBlocEvent.reloadIots() = ReloadIotsEvent;
+
+  const factory IotsBlocEvent.createIotWithPositionCheck(Iot iot) =
+      CreateIotWithPositionCheckEvent;
+
   const factory IotsBlocEvent.createIot(Iot iot) = CreateIotEvent;
 
   const factory IotsBlocEvent.changeIotState(Iot iot) = ChangeIotStateEvent;

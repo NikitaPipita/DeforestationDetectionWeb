@@ -5,10 +5,10 @@ abstract class CreateIotUseCase {
   Future<void> createIot(Iot iot);
 }
 
-class ApiCreateIotsUseCase implements CreateIotUseCase {
+class ApiCreateIotUseCase implements CreateIotUseCase {
   final IotRepository _iotRepository;
 
-  ApiCreateIotsUseCase(
+  ApiCreateIotUseCase(
     this._iotRepository,
   );
 

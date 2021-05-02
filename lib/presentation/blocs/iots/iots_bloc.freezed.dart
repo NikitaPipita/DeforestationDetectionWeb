@@ -24,6 +24,16 @@ class _$IotsBlocEventTearOff {
     return const GetSignalingIotsEvent();
   }
 
+  ReloadIotsEvent reloadIots() {
+    return const ReloadIotsEvent();
+  }
+
+  CreateIotWithPositionCheckEvent createIotWithPositionCheck(Iot iot) {
+    return CreateIotWithPositionCheckEvent(
+      iot,
+    );
+  }
+
   CreateIotEvent createIot(Iot iot) {
     return CreateIotEvent(
       iot,
@@ -46,6 +56,8 @@ mixin _$IotsBlocEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getIots,
     required TResult Function() getSignalingIots,
+    required TResult Function() reloadIots,
+    required TResult Function(Iot iot) createIotWithPositionCheck,
     required TResult Function(Iot iot) createIot,
     required TResult Function(Iot iot) changeIotState,
   }) =>
@@ -54,6 +66,8 @@ mixin _$IotsBlocEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getIots,
     TResult Function()? getSignalingIots,
+    TResult Function()? reloadIots,
+    TResult Function(Iot iot)? createIotWithPositionCheck,
     TResult Function(Iot iot)? createIot,
     TResult Function(Iot iot)? changeIotState,
     required TResult orElse(),
@@ -63,6 +77,9 @@ mixin _$IotsBlocEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetIotsEvent value) getIots,
     required TResult Function(GetSignalingIotsEvent value) getSignalingIots,
+    required TResult Function(ReloadIotsEvent value) reloadIots,
+    required TResult Function(CreateIotWithPositionCheckEvent value)
+        createIotWithPositionCheck,
     required TResult Function(CreateIotEvent value) createIot,
     required TResult Function(ChangeIotStateEvent value) changeIotState,
   }) =>
@@ -71,6 +88,9 @@ mixin _$IotsBlocEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetIotsEvent value)? getIots,
     TResult Function(GetSignalingIotsEvent value)? getSignalingIots,
+    TResult Function(ReloadIotsEvent value)? reloadIots,
+    TResult Function(CreateIotWithPositionCheckEvent value)?
+        createIotWithPositionCheck,
     TResult Function(CreateIotEvent value)? createIot,
     TResult Function(ChangeIotStateEvent value)? changeIotState,
     required TResult orElse(),
@@ -141,6 +161,8 @@ class _$GetIotsEvent extends GetIotsEvent with DiagnosticableTreeMixin {
   TResult when<TResult extends Object?>({
     required TResult Function() getIots,
     required TResult Function() getSignalingIots,
+    required TResult Function() reloadIots,
+    required TResult Function(Iot iot) createIotWithPositionCheck,
     required TResult Function(Iot iot) createIot,
     required TResult Function(Iot iot) changeIotState,
   }) {
@@ -152,6 +174,8 @@ class _$GetIotsEvent extends GetIotsEvent with DiagnosticableTreeMixin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getIots,
     TResult Function()? getSignalingIots,
+    TResult Function()? reloadIots,
+    TResult Function(Iot iot)? createIotWithPositionCheck,
     TResult Function(Iot iot)? createIot,
     TResult Function(Iot iot)? changeIotState,
     required TResult orElse(),
@@ -167,6 +191,9 @@ class _$GetIotsEvent extends GetIotsEvent with DiagnosticableTreeMixin {
   TResult map<TResult extends Object?>({
     required TResult Function(GetIotsEvent value) getIots,
     required TResult Function(GetSignalingIotsEvent value) getSignalingIots,
+    required TResult Function(ReloadIotsEvent value) reloadIots,
+    required TResult Function(CreateIotWithPositionCheckEvent value)
+        createIotWithPositionCheck,
     required TResult Function(CreateIotEvent value) createIot,
     required TResult Function(ChangeIotStateEvent value) changeIotState,
   }) {
@@ -178,6 +205,9 @@ class _$GetIotsEvent extends GetIotsEvent with DiagnosticableTreeMixin {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetIotsEvent value)? getIots,
     TResult Function(GetSignalingIotsEvent value)? getSignalingIots,
+    TResult Function(ReloadIotsEvent value)? reloadIots,
+    TResult Function(CreateIotWithPositionCheckEvent value)?
+        createIotWithPositionCheck,
     TResult Function(CreateIotEvent value)? createIot,
     TResult Function(ChangeIotStateEvent value)? changeIotState,
     required TResult orElse(),
@@ -243,6 +273,8 @@ class _$GetSignalingIotsEvent extends GetSignalingIotsEvent
   TResult when<TResult extends Object?>({
     required TResult Function() getIots,
     required TResult Function() getSignalingIots,
+    required TResult Function() reloadIots,
+    required TResult Function(Iot iot) createIotWithPositionCheck,
     required TResult Function(Iot iot) createIot,
     required TResult Function(Iot iot) changeIotState,
   }) {
@@ -254,6 +286,8 @@ class _$GetSignalingIotsEvent extends GetSignalingIotsEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getIots,
     TResult Function()? getSignalingIots,
+    TResult Function()? reloadIots,
+    TResult Function(Iot iot)? createIotWithPositionCheck,
     TResult Function(Iot iot)? createIot,
     TResult Function(Iot iot)? changeIotState,
     required TResult orElse(),
@@ -269,6 +303,9 @@ class _$GetSignalingIotsEvent extends GetSignalingIotsEvent
   TResult map<TResult extends Object?>({
     required TResult Function(GetIotsEvent value) getIots,
     required TResult Function(GetSignalingIotsEvent value) getSignalingIots,
+    required TResult Function(ReloadIotsEvent value) reloadIots,
+    required TResult Function(CreateIotWithPositionCheckEvent value)
+        createIotWithPositionCheck,
     required TResult Function(CreateIotEvent value) createIot,
     required TResult Function(ChangeIotStateEvent value) changeIotState,
   }) {
@@ -280,6 +317,9 @@ class _$GetSignalingIotsEvent extends GetSignalingIotsEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetIotsEvent value)? getIots,
     TResult Function(GetSignalingIotsEvent value)? getSignalingIots,
+    TResult Function(ReloadIotsEvent value)? reloadIots,
+    TResult Function(CreateIotWithPositionCheckEvent value)?
+        createIotWithPositionCheck,
     TResult Function(CreateIotEvent value)? createIot,
     TResult Function(ChangeIotStateEvent value)? changeIotState,
     required TResult orElse(),
@@ -294,6 +334,265 @@ class _$GetSignalingIotsEvent extends GetSignalingIotsEvent
 abstract class GetSignalingIotsEvent extends IotsBlocEvent {
   const factory GetSignalingIotsEvent() = _$GetSignalingIotsEvent;
   const GetSignalingIotsEvent._() : super._();
+}
+
+/// @nodoc
+abstract class $ReloadIotsEventCopyWith<$Res> {
+  factory $ReloadIotsEventCopyWith(
+          ReloadIotsEvent value, $Res Function(ReloadIotsEvent) then) =
+      _$ReloadIotsEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ReloadIotsEventCopyWithImpl<$Res>
+    extends _$IotsBlocEventCopyWithImpl<$Res>
+    implements $ReloadIotsEventCopyWith<$Res> {
+  _$ReloadIotsEventCopyWithImpl(
+      ReloadIotsEvent _value, $Res Function(ReloadIotsEvent) _then)
+      : super(_value, (v) => _then(v as ReloadIotsEvent));
+
+  @override
+  ReloadIotsEvent get _value => super._value as ReloadIotsEvent;
+}
+
+/// @nodoc
+class _$ReloadIotsEvent extends ReloadIotsEvent with DiagnosticableTreeMixin {
+  const _$ReloadIotsEvent() : super._();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'IotsBlocEvent.reloadIots()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'IotsBlocEvent.reloadIots'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ReloadIotsEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getIots,
+    required TResult Function() getSignalingIots,
+    required TResult Function() reloadIots,
+    required TResult Function(Iot iot) createIotWithPositionCheck,
+    required TResult Function(Iot iot) createIot,
+    required TResult Function(Iot iot) changeIotState,
+  }) {
+    return reloadIots();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getIots,
+    TResult Function()? getSignalingIots,
+    TResult Function()? reloadIots,
+    TResult Function(Iot iot)? createIotWithPositionCheck,
+    TResult Function(Iot iot)? createIot,
+    TResult Function(Iot iot)? changeIotState,
+    required TResult orElse(),
+  }) {
+    if (reloadIots != null) {
+      return reloadIots();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetIotsEvent value) getIots,
+    required TResult Function(GetSignalingIotsEvent value) getSignalingIots,
+    required TResult Function(ReloadIotsEvent value) reloadIots,
+    required TResult Function(CreateIotWithPositionCheckEvent value)
+        createIotWithPositionCheck,
+    required TResult Function(CreateIotEvent value) createIot,
+    required TResult Function(ChangeIotStateEvent value) changeIotState,
+  }) {
+    return reloadIots(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetIotsEvent value)? getIots,
+    TResult Function(GetSignalingIotsEvent value)? getSignalingIots,
+    TResult Function(ReloadIotsEvent value)? reloadIots,
+    TResult Function(CreateIotWithPositionCheckEvent value)?
+        createIotWithPositionCheck,
+    TResult Function(CreateIotEvent value)? createIot,
+    TResult Function(ChangeIotStateEvent value)? changeIotState,
+    required TResult orElse(),
+  }) {
+    if (reloadIots != null) {
+      return reloadIots(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReloadIotsEvent extends IotsBlocEvent {
+  const factory ReloadIotsEvent() = _$ReloadIotsEvent;
+  const ReloadIotsEvent._() : super._();
+}
+
+/// @nodoc
+abstract class $CreateIotWithPositionCheckEventCopyWith<$Res> {
+  factory $CreateIotWithPositionCheckEventCopyWith(
+          CreateIotWithPositionCheckEvent value,
+          $Res Function(CreateIotWithPositionCheckEvent) then) =
+      _$CreateIotWithPositionCheckEventCopyWithImpl<$Res>;
+  $Res call({Iot iot});
+}
+
+/// @nodoc
+class _$CreateIotWithPositionCheckEventCopyWithImpl<$Res>
+    extends _$IotsBlocEventCopyWithImpl<$Res>
+    implements $CreateIotWithPositionCheckEventCopyWith<$Res> {
+  _$CreateIotWithPositionCheckEventCopyWithImpl(
+      CreateIotWithPositionCheckEvent _value,
+      $Res Function(CreateIotWithPositionCheckEvent) _then)
+      : super(_value, (v) => _then(v as CreateIotWithPositionCheckEvent));
+
+  @override
+  CreateIotWithPositionCheckEvent get _value =>
+      super._value as CreateIotWithPositionCheckEvent;
+
+  @override
+  $Res call({
+    Object? iot = freezed,
+  }) {
+    return _then(CreateIotWithPositionCheckEvent(
+      iot == freezed
+          ? _value.iot
+          : iot // ignore: cast_nullable_to_non_nullable
+              as Iot,
+    ));
+  }
+}
+
+/// @nodoc
+class _$CreateIotWithPositionCheckEvent extends CreateIotWithPositionCheckEvent
+    with DiagnosticableTreeMixin {
+  const _$CreateIotWithPositionCheckEvent(this.iot) : super._();
+
+  @override
+  final Iot iot;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'IotsBlocEvent.createIotWithPositionCheck(iot: $iot)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'IotsBlocEvent.createIotWithPositionCheck'))
+      ..add(DiagnosticsProperty('iot', iot));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is CreateIotWithPositionCheckEvent &&
+            (identical(other.iot, iot) ||
+                const DeepCollectionEquality().equals(other.iot, iot)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(iot);
+
+  @JsonKey(ignore: true)
+  @override
+  $CreateIotWithPositionCheckEventCopyWith<CreateIotWithPositionCheckEvent>
+      get copyWith => _$CreateIotWithPositionCheckEventCopyWithImpl<
+          CreateIotWithPositionCheckEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getIots,
+    required TResult Function() getSignalingIots,
+    required TResult Function() reloadIots,
+    required TResult Function(Iot iot) createIotWithPositionCheck,
+    required TResult Function(Iot iot) createIot,
+    required TResult Function(Iot iot) changeIotState,
+  }) {
+    return createIotWithPositionCheck(iot);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getIots,
+    TResult Function()? getSignalingIots,
+    TResult Function()? reloadIots,
+    TResult Function(Iot iot)? createIotWithPositionCheck,
+    TResult Function(Iot iot)? createIot,
+    TResult Function(Iot iot)? changeIotState,
+    required TResult orElse(),
+  }) {
+    if (createIotWithPositionCheck != null) {
+      return createIotWithPositionCheck(iot);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetIotsEvent value) getIots,
+    required TResult Function(GetSignalingIotsEvent value) getSignalingIots,
+    required TResult Function(ReloadIotsEvent value) reloadIots,
+    required TResult Function(CreateIotWithPositionCheckEvent value)
+        createIotWithPositionCheck,
+    required TResult Function(CreateIotEvent value) createIot,
+    required TResult Function(ChangeIotStateEvent value) changeIotState,
+  }) {
+    return createIotWithPositionCheck(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetIotsEvent value)? getIots,
+    TResult Function(GetSignalingIotsEvent value)? getSignalingIots,
+    TResult Function(ReloadIotsEvent value)? reloadIots,
+    TResult Function(CreateIotWithPositionCheckEvent value)?
+        createIotWithPositionCheck,
+    TResult Function(CreateIotEvent value)? createIot,
+    TResult Function(ChangeIotStateEvent value)? changeIotState,
+    required TResult orElse(),
+  }) {
+    if (createIotWithPositionCheck != null) {
+      return createIotWithPositionCheck(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateIotWithPositionCheckEvent extends IotsBlocEvent {
+  const factory CreateIotWithPositionCheckEvent(Iot iot) =
+      _$CreateIotWithPositionCheckEvent;
+  const CreateIotWithPositionCheckEvent._() : super._();
+
+  Iot get iot => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CreateIotWithPositionCheckEventCopyWith<CreateIotWithPositionCheckEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -370,6 +669,8 @@ class _$CreateIotEvent extends CreateIotEvent with DiagnosticableTreeMixin {
   TResult when<TResult extends Object?>({
     required TResult Function() getIots,
     required TResult Function() getSignalingIots,
+    required TResult Function() reloadIots,
+    required TResult Function(Iot iot) createIotWithPositionCheck,
     required TResult Function(Iot iot) createIot,
     required TResult Function(Iot iot) changeIotState,
   }) {
@@ -381,6 +682,8 @@ class _$CreateIotEvent extends CreateIotEvent with DiagnosticableTreeMixin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getIots,
     TResult Function()? getSignalingIots,
+    TResult Function()? reloadIots,
+    TResult Function(Iot iot)? createIotWithPositionCheck,
     TResult Function(Iot iot)? createIot,
     TResult Function(Iot iot)? changeIotState,
     required TResult orElse(),
@@ -396,6 +699,9 @@ class _$CreateIotEvent extends CreateIotEvent with DiagnosticableTreeMixin {
   TResult map<TResult extends Object?>({
     required TResult Function(GetIotsEvent value) getIots,
     required TResult Function(GetSignalingIotsEvent value) getSignalingIots,
+    required TResult Function(ReloadIotsEvent value) reloadIots,
+    required TResult Function(CreateIotWithPositionCheckEvent value)
+        createIotWithPositionCheck,
     required TResult Function(CreateIotEvent value) createIot,
     required TResult Function(ChangeIotStateEvent value) changeIotState,
   }) {
@@ -407,6 +713,9 @@ class _$CreateIotEvent extends CreateIotEvent with DiagnosticableTreeMixin {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetIotsEvent value)? getIots,
     TResult Function(GetSignalingIotsEvent value)? getSignalingIots,
+    TResult Function(ReloadIotsEvent value)? reloadIots,
+    TResult Function(CreateIotWithPositionCheckEvent value)?
+        createIotWithPositionCheck,
     TResult Function(CreateIotEvent value)? createIot,
     TResult Function(ChangeIotStateEvent value)? changeIotState,
     required TResult orElse(),
@@ -503,6 +812,8 @@ class _$ChangeIotStateEvent extends ChangeIotStateEvent
   TResult when<TResult extends Object?>({
     required TResult Function() getIots,
     required TResult Function() getSignalingIots,
+    required TResult Function() reloadIots,
+    required TResult Function(Iot iot) createIotWithPositionCheck,
     required TResult Function(Iot iot) createIot,
     required TResult Function(Iot iot) changeIotState,
   }) {
@@ -514,6 +825,8 @@ class _$ChangeIotStateEvent extends ChangeIotStateEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getIots,
     TResult Function()? getSignalingIots,
+    TResult Function()? reloadIots,
+    TResult Function(Iot iot)? createIotWithPositionCheck,
     TResult Function(Iot iot)? createIot,
     TResult Function(Iot iot)? changeIotState,
     required TResult orElse(),
@@ -529,6 +842,9 @@ class _$ChangeIotStateEvent extends ChangeIotStateEvent
   TResult map<TResult extends Object?>({
     required TResult Function(GetIotsEvent value) getIots,
     required TResult Function(GetSignalingIotsEvent value) getSignalingIots,
+    required TResult Function(ReloadIotsEvent value) reloadIots,
+    required TResult Function(CreateIotWithPositionCheckEvent value)
+        createIotWithPositionCheck,
     required TResult Function(CreateIotEvent value) createIot,
     required TResult Function(ChangeIotStateEvent value) changeIotState,
   }) {
@@ -540,6 +856,9 @@ class _$ChangeIotStateEvent extends ChangeIotStateEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetIotsEvent value)? getIots,
     TResult Function(GetSignalingIotsEvent value)? getSignalingIots,
+    TResult Function(ReloadIotsEvent value)? reloadIots,
+    TResult Function(CreateIotWithPositionCheckEvent value)?
+        createIotWithPositionCheck,
     TResult Function(CreateIotEvent value)? createIot,
     TResult Function(ChangeIotStateEvent value)? changeIotState,
     required TResult orElse(),

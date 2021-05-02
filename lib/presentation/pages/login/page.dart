@@ -97,7 +97,10 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   }
                   if (snapshot.status == LoginBlocStatus.Login &&
-                      snapshot.user!.role == 'admin') {
+                      (snapshot.user!.role == 'admin' ||
+                          snapshot.user!.role == 'manager' ||
+                          snapshot.user!.role == 'employee' ||
+                          snapshot.user!.role == 'observer')) {
                     Navigator.push(
                       context,
                       MaterialPageRoute<IotsPage>(

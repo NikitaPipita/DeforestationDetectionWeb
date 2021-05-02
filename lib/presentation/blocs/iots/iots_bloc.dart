@@ -28,14 +28,16 @@ class IotsBloc extends Bloc<IotsBlocEvent, IotsBlocState> {
     this._createIotUseCase,
     this._changeIotStateUseCase,
   ) : super(const IotsBlocState(IotsBlocStatus.Loading)) {
-    add(const GetSignalingIotsEvent());
+    add(const IotsBlocEvent.getSignalingIots());
   }
 
   @override
   Stream<IotsBlocState> mapEventToState(IotsBlocEvent event) => event.when(
         getIots: _getIots,
         getSignalingIots: _getSignalingIots,
+        createIotWithPositionCheck: _createIotWithPositionCheck,
         createIot: _createIot,
+        reloadIots: _reloadIots,
         changeIotState: _changeIotState,
       );
 
@@ -61,7 +63,7 @@ class IotsBloc extends Bloc<IotsBlocEvent, IotsBlocState> {
         .catchError(_errorState);
   }
 
-  Stream<IotsBlocState> _createIot(Iot iot) async* {
+  Stream<IotsBlocState> _createIotWithPositionCheck(Iot iot) async* {
     try {
       final SuitablePosition suitablePosition =
           await _checkSuitableIotPositionUseCase.checkSuitableIotPosition(iot);
@@ -82,6 +84,7 @@ class IotsBloc extends Bloc<IotsBlocEvent, IotsBlocState> {
           IotsBlocStatus.IotPositionIsNotSuitable,
           iots: state.iots,
           suitablePosition: suitablePosition,
+          rejectedIot: iot,
         );
         yield IotsBlocState(
           prevState,
@@ -90,6 +93,31 @@ class IotsBloc extends Bloc<IotsBlocEvent, IotsBlocState> {
       }
     } on Exception catch (e) {
       yield _errorState(e);
+    }
+  }
+
+  Stream<IotsBlocState> _createIot(Iot iot) async* {
+    try {
+      await _createIotUseCase.createIot(iot);
+      yield IotsBlocState(
+        IotsBlocStatus.OperationSuccess,
+        iots: state.iots,
+      );
+      if (state.status == IotsBlocStatus.LoadedAllIots) {
+        add(const IotsBlocEvent.getIots());
+      } else {
+        add(const IotsBlocEvent.getSignalingIots());
+      }
+    } on Exception catch (e) {
+      yield _errorState(e);
+    }
+  }
+
+  Stream<IotsBlocState> _reloadIots() async* {
+    if (state.status == IotsBlocStatus.LoadedAllIots) {
+      add(const IotsBlocEvent.getIots());
+    } else {
+      add(const IotsBlocEvent.getSignalingIots());
     }
   }
 
@@ -115,6 +143,7 @@ class IotsBloc extends Bloc<IotsBlocEvent, IotsBlocState> {
         IotsBlocStatus.Loading,
         iots: state.iots,
         suitablePosition: state.suitablePosition,
+        rejectedIot: state.rejectedIot,
       );
 
   IotsBlocState _errorState(Object error) => IotsBlocState(
@@ -122,5 +151,6 @@ class IotsBloc extends Bloc<IotsBlocEvent, IotsBlocState> {
         iots: state.iots,
         suitablePosition: state.suitablePosition,
         error: error,
+        rejectedIot: state.rejectedIot,
       );
 }

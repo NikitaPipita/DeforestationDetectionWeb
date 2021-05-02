@@ -5,10 +5,10 @@ abstract class ChangeIotStateUseCase {
   Future<void> changeIotState(Iot iot);
 }
 
-class ApiChangeIotUseCase implements ChangeIotStateUseCase {
+class ApiChangeIotStateUseCase implements ChangeIotStateUseCase {
   final IotRepository _iotRepository;
 
-  ApiChangeIotUseCase(
+  ApiChangeIotStateUseCase(
     this._iotRepository,
   );
 

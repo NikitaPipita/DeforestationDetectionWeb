@@ -18,8 +18,10 @@ class ApiIotGateWay {
     if (response.statusCode == 200) {
       final List<dynamic> data = response.data! as List<dynamic>;
       return data.map((dynamic iotData) {
+        final dynamic groupData = iotData['group'];
         return IotDto(
           id: iotData['iot_id'] as int,
+          groupId: groupData['group_id'] as int,
           longitude: iotData['longitude'] as double,
           latitude: iotData['latitude'] as double,
           state: iotData['iot_state'] as String,
@@ -94,7 +96,7 @@ class ApiIotGateWay {
     final Response<dynamic> response = await _apiProvider.apiProviderPut(
       'iot/state',
       data: <String, dynamic>{
-        'user_id': iot.userId!,
+        'iot_id': iot.id!,
         'iot_state': iot.state,
       },
     );

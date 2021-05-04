@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:deforestation_detection/domain/entities/iot.dart';
 import 'package:flutter/material.dart';
 
@@ -27,10 +28,10 @@ class _SignalingIotsListState extends State<SignalingIotsList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Longitude: ' + widget._iotsInfo[index].longitude.toString(),
+                'longitude'.tr() +  ': ' + widget._iotsInfo[index].longitude.toString(),
               ),
               Text(
-                'Latitude: ' + widget._iotsInfo[index].latitude.toString(),
+                'latitude'.tr() +  ': ' + widget._iotsInfo[index].latitude.toString(),
               ),
             ],
           ),

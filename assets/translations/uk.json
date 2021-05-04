@@ -27,5 +27,7 @@
   "add_iot": "Додати IoT",
   "add_group": "Додати Групу",
   "show_all_iots": "Показати всі IoT",
-  "group": "Група"
+  "group": "Група",
+  "longitude": "Довгота",
+  "latitude": "Широта"
 }

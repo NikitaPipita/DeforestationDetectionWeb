@@ -27,5 +27,7 @@
   "add_iot": "Add IoT",
   "add_group": "Add Group",
   "show_all_iots": "Show all IoTs",
-  "group": "Group"
+  "group": "Group",
+  "longitude": "Longitude",
+  "latitude": "Latitude"
 }

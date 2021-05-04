@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:deforestation_detection/dependency_injection.dart' as di;
 import 'package:deforestation_detection/domain/entities/iot.dart';
 import 'package:deforestation_detection/presentation/blocs/iots/iots_bloc.dart';
@@ -49,10 +50,10 @@ class _AllIotsListState extends State<AllIotsList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Longitude: ' + widget._iotsInfo[index].longitude.toString(),
+                'longitude'.tr() +  ': ' + widget._iotsInfo[index].longitude.toString(),
               ),
               Text(
-                'Latitude: ' + widget._iotsInfo[index].latitude.toString(),
+                'latitude'.tr() +  ': ' + widget._iotsInfo[index].latitude.toString(),
               ),
             ],
           ),

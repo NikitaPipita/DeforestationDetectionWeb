@@ -38,19 +38,10 @@ class NotSuitablePositionDialog extends StatelessWidget {
           const SizedBox(
             height: 10.0,
           ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(
-                'step_back_at_least'.tr() + ' ',
-              ),
-              const SizedBox(
-                width: 10.0,
-              ),
-              Text(
-                _suitablePosition.minimumDistanceToMoveAway.toString(),
-              ),
-            ],
+          Text(
+            'step_back_at_least'.tr() +
+                ' ${_suitablePosition.minimumDistanceToMoveAway} ' +
+                'meters'.tr(),
           ),
         ],
       ),
